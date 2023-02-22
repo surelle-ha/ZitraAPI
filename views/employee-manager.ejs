@@ -1,0 +1,725 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include(process.cwd() + "/views/_head.ejs" ) %>
+    <title>Zitra | Home</title>
+  </head>
+  <body>
+    <div class="container-scroller">
+      <%- include(process.cwd() + "/views/_sidenav.ejs") %>
+        <div class="main-panel">
+          <div class="content-wrapper">
+            <div class="row">
+              <div class="col-xl-3 col-sm-6 grid-margin stretch-card">
+                <div class="card">
+                  <div class="card-body">
+                    <div class="row">
+                      <div class="col-9">
+                        <div class="d-flex align-items-center align-self-start">
+                          <h3 class="mb-0">
+                            <%= Object.keys(alluser).length %>
+                          </h3>
+                        </div>
+                      </div>
+                      <div class="col-3">
+                        <div class="icon icon-box-success ">
+                          <span class="mdi mdi-arrow-top-right icon-item"></span>
+                        </div>
+                      </div>
+                    </div>
+                    <h6 class="text-muted font-weight-normal">Employees</h6>
+                  </div>
+                </div>
+              </div>
+              <div class="col-xl-3 col-sm-6 grid-margin stretch-card">
+                <div class="card">
+                  <div class="card-body">
+                    <div class="row">
+                      <div class="col-9">
+                        <div class="d-flex align-items-center align-self-start">
+                          <h3 class="mb-0">16.8%</h3>
+                          <p class="text-success ml-2 mb-0 font-weight-medium">+11%</p>
+                        </div>
+                      </div>
+                      <div class="col-3">
+                        <div class="icon icon-box-success">
+                          <span class="mdi mdi-arrow-top-right icon-item"></span>
+                        </div>
+                      </div>
+                    </div>
+                    <h6 class="text-muted font-weight-normal">Attrition Rate</h6>
+                  </div>
+                </div>
+              </div>
+              <div class="col-xl-3 col-sm-6 grid-margin stretch-card">
+                <div class="card">
+                  <div class="card-body">
+                    <div class="row">
+                      <div class="col-9">
+                        <div class="d-flex align-items-center align-self-start">
+                          <h3 class="mb-0">12.34%</h3>
+                          <p class="text-danger ml-2 mb-0 font-weight-medium">-2.4%</p>
+                        </div>
+                      </div>
+                      <div class="col-3">
+                        <div class="icon icon-box-danger">
+                          <span class="mdi mdi-arrow-bottom-left icon-item"></span>
+                        </div>
+                      </div>
+                    </div>
+                    <h6 class="text-muted font-weight-normal">Retention Rate</h6>
+                  </div>
+                </div>
+              </div>
+              <div class="col-xl-3 col-sm-6 grid-margin stretch-card">
+                <div class="card">
+                  <div class="card-body">
+                    <div class="row">
+                      <div class="col-9">
+                        <div class="d-flex align-items-center align-self-start">
+                          <h3 class="mb-0">11.53%</h3>
+                          <p class="text-success ml-2 mb-0 font-weight-medium">+3.5%</p>
+                        </div>
+                      </div>
+                      <div class="col-3">
+                        <div class="icon icon-box-success ">
+                          <span class="mdi mdi-arrow-top-right icon-item"></span>
+                        </div>
+                      </div>
+                    </div>
+                    <h6 class="text-muted font-weight-normal">Churn Rate</h6>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-lg-12 grid-margin stretch-card">
+                <div class="card">
+                  <div class="card-body">
+                    <h4 class="card-title">Employee List</h4>
+                    <p class="card-description"> Add class <code>.table-striped</code>
+                    </p>
+                    <div class="table-responsive">
+                      <table class="table table-striped">
+                        <thead>
+                          <tr>
+                            <th> Display </th>
+                            <th> Ident </th>
+                            <th> Full Name </th>
+                            <th> Position </th>
+                            <th> Manager </th>
+                            <th> Hire Date </th>
+                            <th> Status </th>
+                            <th> AcExecutive </th>
+                            <th> AcAdmin </th>
+                            <th> AcFinance </th>
+                            <th> AcHR </th>
+                            <th> AcDeveloper </th>
+                            <th> AcSuperUser </th>
+                            <th> Action </th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <% alluser.forEach(alluser => { %>
+                          <tr>
+                            <td class="py-1">
+                              <img src="../../assets/images/faces-clipart/pic-1.png" alt="image" />
+                            </td>
+                            <td> <%= (alluser.id).toUpperCase() %> </td>
+                            <td> <%= alluser.fname + " " + alluser.lname %> </td>
+                            <td> <%= alluser.position %> </td>
+                            <td> <%= alluser.reportto %> </td>
+                            <td> <%= alluser.hiredate %> </td>
+                            <% if(alluser.status == 1){ %>
+                              <td><label class="badge badge-success w-100">Active</label></td>
+                            <% }else{ %>
+                              <td><label class="badge badge-danger w-100">Inactive</label></td>
+                            <% } %>
+                            <% if(alluser.executive){ %>
+                              <td><label class="badge badge-info w-100">Yes</label></td>
+                            <% }else{ %>
+                              <td><label class="badge badge-info w-100">No</label></td>
+                            <% } %>
+                            <% if(alluser.admin){ %>
+                              <td><label class="badge badge-info w-100">Yes</label></td>
+                            <% }else{ %>
+                              <td><label class="badge badge-info w-100">No</label></td>
+                            <% } %>
+                            <% if(alluser.finance){ %>
+                              <td><label class="badge badge-info w-100">Yes</label></td>
+                            <% }else{ %>
+                              <td><label class="badge badge-info w-100">No</label></td>
+                            <% } %>
+                            <% if(alluser.humanresource){ %>
+                              <td><label class="badge badge-info w-100">Yes</label></td>
+                            <% }else{ %>
+                              <td><label class="badge badge-info w-100">No</label></td>
+                            <% } %>
+                            <% if(alluser.developer){ %>
+                              <td><label class="badge badge-info w-100">Yes</label></td>
+                            <% }else{ %>
+                              <td><label class="badge badge-info w-100">No</label></td>
+                            <% } %>
+                            <% if(alluser.superuser){ %>
+                              <td><label class="badge badge-info w-100">Yes</label></td>
+                            <% }else{ %>
+                              <td><label class="badge badge-info w-100">No</label></td>
+                            <% } %>
+                            <td><button class="btn btn-primary w-100" data-toggle="modal" data-target="#manageUser">Manage</button></td>
+                          </tr>
+                          <% }); %>
+                          
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-12 grid-margin">
+                <div class="card">
+                  <div class="card-body">
+                    <h4 class="card-title">Manager Menu</h4>
+                    <div class="template-demo mt-4">
+                      <div class="btn-group" role="group" aria-label="Basic example">
+                        <button type="button" class="btn btn-outline-secondary" data-toggle="collapse" href="#createEmployee" role="button" aria-expanded="false" aria-controls="createEmployee">
+                          <i class="d-block mb-1"></i> Create Employee </button>
+                        <button type="button" class="btn btn-outline-secondary">
+                          <i class="d-block mb-1"></i> Manual Account Register </button>
+                        <button type="button" class="btn btn-outline-secondary">
+                          <i class="d-block mb-1"></i> Users </button>
+                        <button type="button" class="btn btn-outline-secondary">
+                          <i class="d-block mb-1"></i> Users </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="collapse" id="createEmployee">
+              <div class="row">
+                <div class="col-12 grid-margin">
+                  <div class="card">
+                    <div class="card-body">
+                      <h4 class="card-title">Create Employee</h4>
+                      <form class="form-sample" method="GET" action="/account/create" id="createEmployee">
+                        <p class="card-description"> Personal info </p>
+                        <div class="row">
+                          <div class="col-md-6">
+                            <div class="form-group row">
+                              <label class="col-sm-3 col-form-label">First Name</label>
+                              <div class="col-sm-9">
+                                <input type="text" class="form-control" name="fname" required/>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="col-md-6">
+                            <div class="form-group row">
+                              <label class="col-sm-3 col-form-label">Middle Name</label>
+                              <div class="col-sm-9">
+                                <input type="text" class="form-control" name="mname" required/>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="row">
+                          <div class="col-md-6">
+                            <div class="form-group row">
+                              <label class="col-sm-3 col-form-label">Last Name</label>
+                              <div class="col-sm-9">
+                                <input type="text" class="form-control" name="lname" required/>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="col-md-6">
+                            <div class="form-group row">
+                              <label class="col-sm-3 col-form-label">Gender</label>
+                              <div class="col-sm-9">
+                                <select name="gender" class="form-control" required>
+                                  <option disabled selected value> -- select gender -- </option>
+                                  <option value="Male">Male</option>
+                                  <option value="Female">Female</option>
+                                  <option value="Other">Other</option>
+                                  <option value="Prefer not to say">Prefer not to say</option>
+                                </select>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="row">
+                          <div class="col-md-6">
+                            <div class="form-group row">
+                              <label class="col-sm-3 col-form-label">Date of Birth</label>
+                              <div class="col-sm-9">
+                                <input class="form-control" placeholder="yyyy-mm-dd" name="birth" required/>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="row">
+                          <div class="col-md-6">
+                            <div class="form-group row">
+                              <label class="col-sm-3 col-form-label">Position</label>
+                              <div class="col-sm-9">
+                                <select class="form-control" name="position" required>
+                                  <option disabled selected value> -- select role -- </option>
+                                  <option value="CEO">CEO</option>
+                                  <option value="Assistant CEO">Assistant CEO</option>
+                                  <option value="CTO">CTO</option>
+                                  <option value="Administrator">Administrator</option>
+                                  <option value="Developer">Developer</option>
+                                  <option value="Human Resource">Human Resource</option>
+                                  <option value="Virtual Assistant">Virtual Assistant</option>
+                                  <option value="IT Consultant">IT Consultant</option>
+                                  <option value="IT Service Desk">IT Service Desk</option>
+                                  <option value="IT Service Desk Manager">IT Service Desk Manager</option>
+                                  <option value="QA Analyst">QA Analyst</option>
+                                </select>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <p class="card-description"> Address </p>
+                        <div class="row">
+                          <div class="col-md-6">
+                            <div class="form-group row">
+                              <label class="col-sm-3 col-form-label">Address 1</label>
+                              <div class="col-sm-9">
+                                <input type="text" class="form-control" name="address_1" required/>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="col-md-6">
+                            <div class="form-group row">
+                              <label class="col-sm-3 col-form-label">State</label>
+                              <div class="col-sm-9">
+                                <input type="text" class="form-control" name="state" required/>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="row">
+                          <div class="col-md-6">
+                            <div class="form-group row">
+                              <label class="col-sm-3 col-form-label">Address 2</label>
+                              <div class="col-sm-9">
+                                <input type="text" class="form-control" name="address_2" required/>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="col-md-6">
+                            <div class="form-group row">
+                              <label class="col-sm-3 col-form-label">Postcode</label>
+                              <div class="col-sm-9">
+                                <input type="text" class="form-control" name="postcode" required/>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="row">
+                          <div class="col-md-6">
+                            <div class="form-group row">
+                              <label class="col-sm-3 col-form-label">City</label>
+                              <div class="col-sm-9">
+                                <input type="text" class="form-control" name="city" required/>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="col-md-6">
+                            <div class="form-group row">
+                              <label class="col-sm-3 col-form-label">Country</label>
+                              <div class="col-sm-9">
+                                <select class="form-control" name="country" required>
+                                  <option value="Afghanistan">Afghanistan</option>
+                                  <option value="Albania">Albania</option>
+                                  <option value="Algeria">Algeria</option>
+                                  <option value="Andorra">Andorra</option>
+                                  <option value="Angola">Angola</option>
+                                  <option value="Antigua & Deps">Antigua & Deps</option>
+                                  <option value="Argentina">Argentina</option>
+                                  <option value="Armenia">Armenia</option>
+                                  <option value="Australia">Australia</option>
+                                  <option value="Austria">Austria</option>
+                                  <option value="Azerbaijan">Azerbaijan</option>
+                                  <option value="Bahamas">Bahamas</option>
+                                  <option value="Bahrain">Bahrain</option>
+                                  <option value="Bangladesh">Bangladesh</option>
+                                  <option value="Barbados">Barbados</option>
+                                  <option value="Belarus">Belarus</option>
+                                  <option value="Belgium">Belgium</option>
+                                  <option value="Belize">Belize</option>
+                                  <option value="Benin">Benin</option>
+                                  <option value="Bhutan">Bhutan</option>
+                                  <option value="Bolivia">Bolivia</option>
+                                  <option value="Bosnia Herzegovina">Bosnia Herzegovina</option>
+                                  <option value="Botswana">Botswana</option>
+                                  <option value="Brazil">Brazil</option>
+                                  <option value="Brunei">Brunei</option>
+                                  <option value="Bulgaria">Bulgaria</option>
+                                  <option value="Burkina">Burkina</option>
+                                  <option value="Burundi">Burundi</option>
+                                  <option value="Cambodia">Cambodia</option>
+                                  <option value="Cameroon">Cameroon</option>
+                                  <option value="Canada">Canada</option>
+                                  <option value="Cape Verde">Cape Verde</option>
+                                  <option value="Central African Rep">Central African Rep</option>
+                                  <option value="Chad">Chad</option>
+                                  <option value="Chile">Chile</option>
+                                  <option value="China">China</option>
+                                  <option value="Colombia">Colombia</option>
+                                  <option value="Comoros">Comoros</option>
+                                  <option value="Congo">Congo</option>
+                                  <option value="Congo {Democratic Rep}">Congo {Democratic Rep}</option>
+                                  <option value="Costa Rica">Costa Rica</option>
+                                  <option value="Croatia">Croatia</option>
+                                  <option value="Cuba">Cuba</option>
+                                  <option value="Cyprus">Cyprus</option>
+                                  <option value="Czech Republic">Czech Republic</option>
+                                  <option value="Denmark">Denmark</option>
+                                  <option value="Djibouti">Djibouti</option>
+                                  <option value="Dominica">Dominica</option>
+                                  <option value="Dominican Republic">Dominican Republic</option>
+                                  <option value="East Timor">East Timor</option>
+                                  <option value="Ecuador">Ecuador</option>
+                                  <option value="Egypt">Egypt</option>
+                                  <option value="El Salvador">El Salvador</option>
+                                  <option value="Equatorial Guinea">Equatorial Guinea</option>
+                                  <option value="Eritrea">Eritrea</option>
+                                  <option value="Estonia">Estonia</option>
+                                  <option value="Ethiopia">Ethiopia</option>
+                                  <option value="Fiji">Fiji</option>
+                                  <option value="Finland">Finland</option>
+                                  <option value="France">France</option>
+                                  <option value="Gabon">Gabon</option>
+                                  <option value="Gambia">Gambia</option>
+                                  <option value="Georgia">Georgia</option>
+                                  <option value="Germany">Germany</option>
+                                  <option value="Ghana">Ghana</option>
+                                  <option value="Greece">Greece</option>
+                                  <option value="Grenada">Grenada</option>
+                                  <option value="Guatemala">Guatemala</option>
+                                  <option value="Guinea">Guinea</option>
+                                  <option value="Guinea-Bissau">Guinea-Bissau</option>
+                                  <option value="Guyana">Guyana</option>
+                                  <option value="Haiti">Haiti</option>
+                                  <option value="Honduras">Honduras</option>
+                                  <option value="Hungary">Hungary</option>
+                                  <option value="Iceland">Iceland</option>
+                                  <option value="India">India</option>
+                                  <option value="Indonesia">Indonesia</option>
+                                  <option value="Iran">Iran</option>
+                                  <option value="Iraq">Iraq</option>
+                                  <option value="Ireland {Republic}">Ireland {Republic}</option>
+                                  <option value="Israel">Israel</option>
+                                  <option value="Italy">Italy</option>
+                                  <option value="Ivory Coast">Ivory Coast</option>
+                                  <option value="Jamaica">Jamaica</option>
+                                  <option value="Japan">Japan</option>
+                                  <option value="Jordan">Jordan</option>
+                                  <option value="Kazakhstan">Kazakhstan</option>
+                                  <option value="Kenya">Kenya</option>
+                                  <option value="Kiribati">Kiribati</option>
+                                  <option value="Korea North">Korea North</option>
+                                  <option value="Korea South">Korea South</option>
+                                  <option value="Kosovo">Kosovo</option>
+                                  <option value="Kuwait">Kuwait</option>
+                                  <option value="Kyrgyzstan">Kyrgyzstan</option>
+                                  <option value="Laos">Laos</option>
+                                  <option value="Latvia">Latvia</option>
+                                  <option value="Lebanon">Lebanon</option>
+                                  <option value="Lesotho">Lesotho</option>
+                                  <option value="Liberia">Liberia</option>
+                                  <option value="Libya">Libya</option>
+                                  <option value="Liechtenstein">Liechtenstein</option>
+                                  <option value="Lithuania">Lithuania</option>
+                                  <option value="Luxembourg">Luxembourg</option>
+                                  <option value="Macedonia">Macedonia</option>
+                                  <option value="Madagascar">Madagascar</option>
+                                  <option value="Malawi">Malawi</option>
+                                  <option value="Malaysia">Malaysia</option>
+                                  <option value="Maldives">Maldives</option>
+                                  <option value="Mali">Mali</option>
+                                  <option value="Malta">Malta</option>
+                                  <option value="Marshall Islands">Marshall Islands</option>
+                                  <option value="Mauritania">Mauritania</option>
+                                  <option value="Mauritius">Mauritius</option>
+                                  <option value="Mexico">Mexico</option>
+                                  <option value="Micronesia">Micronesia</option>
+                                  <option value="Moldova">Moldova</option>
+                                  <option value="Monaco">Monaco</option>
+                                  <option value="Mongolia">Mongolia</option>
+                                  <option value="Montenegro">Montenegro</option>
+                                  <option value="Morocco">Morocco</option>
+                                  <option value="Mozambique">Mozambique</option>
+                                  <option value="Myanmar, {Burma}">Myanmar, {Burma}</option>
+                                  <option value="Namibia">Namibia</option>
+                                  <option value="Nauru">Nauru</option>
+                                  <option value="Nepal">Nepal</option>
+                                  <option value="Netherlands">Netherlands</option>
+                                  <option value="New Zealand">New Zealand</option>
+                                  <option value="Nicaragua">Nicaragua</option>
+                                  <option value="Niger">Niger</option>
+                                  <option value="Nigeria">Nigeria</option>
+                                  <option value="Norway">Norway</option>
+                                  <option value="Oman">Oman</option>
+                                  <option value="Pakistan">Pakistan</option>
+                                  <option value="Palau">Palau</option>
+                                  <option value="Panama">Panama</option>
+                                  <option value="Papua New Guinea">Papua New Guinea</option>
+                                  <option value="Paraguay">Paraguay</option>
+                                  <option value="Peru">Peru</option>
+                                  <option value="Philippines" selected>Philippines</option>
+                                  <option value="Poland">Poland</option>
+                                  <option value="Portugal">Portugal</option>
+                                  <option value="Qatar">Qatar</option>
+                                  <option value="Romania">Romania</option>
+                                  <option value="Russian Federation">Russian Federation</option>
+                                  <option value="Rwanda">Rwanda</option>
+                                  <option value="St Kitts & Nevis">St Kitts & Nevis</option>
+                                  <option value="St Lucia">St Lucia</option>
+                                  <option value="Saint Vincent & the Grenadines">Saint Vincent & the Grenadines</option>
+                                  <option value="Samoa">Samoa</option>
+                                  <option value="San Marino">San Marino</option>
+                                  <option value="Sao Tome & Principe">Sao Tome & Principe</option>
+                                  <option value="Saudi Arabia">Saudi Arabia</option>
+                                  <option value="Senegal">Senegal</option>
+                                  <option value="Serbia">Serbia</option>
+                                  <option value="Seychelles">Seychelles</option>
+                                  <option value="Sierra Leone">Sierra Leone</option>
+                                  <option value="Singapore">Singapore</option>
+                                  <option value="Slovakia">Slovakia</option>
+                                  <option value="Slovenia">Slovenia</option>
+                                  <option value="Solomon Islands">Solomon Islands</option>
+                                  <option value="Somalia">Somalia</option>
+                                  <option value="South Africa">South Africa</option>
+                                  <option value="South Sudan">South Sudan</option>
+                                  <option value="Spain">Spain</option>
+                                  <option value="Sri Lanka">Sri Lanka</option>
+                                  <option value="Sudan">Sudan</option>
+                                  <option value="Suriname">Suriname</option>
+                                  <option value="Swaziland">Swaziland</option>
+                                  <option value="Sweden">Sweden</option>
+                                  <option value="Switzerland">Switzerland</option>
+                                  <option value="Syria">Syria</option>
+                                  <option value="Taiwan">Taiwan</option>
+                                  <option value="Tajikistan">Tajikistan</option>
+                                  <option value="Tanzania">Tanzania</option>
+                                  <option value="Thailand">Thailand</option>
+                                  <option value="Togo">Togo</option>
+                                  <option value="Tonga">Tonga</option>
+                                  <option value="Trinidad & Tobago">Trinidad & Tobago</option>
+                                  <option value="Tunisia">Tunisia</option>
+                                  <option value="Turkey">Turkey</option>
+                                  <option value="Turkmenistan">Turkmenistan</option>
+                                  <option value="Tuvalu">Tuvalu</option>
+                                  <option value="Uganda">Uganda</option>
+                                  <option value="Ukraine">Ukraine</option>
+                                  <option value="United Arab Emirates">United Arab Emirates</option>
+                                  <option value="United Kingdom">United Kingdom</option>
+                                  <option value="United States">United States</option>
+                                  <option value="Uruguay">Uruguay</option>
+                                  <option value="Uzbekistan">Uzbekistan</option>
+                                  <option value="Vanuatu">Vanuatu</option>
+                                  <option value="Vatican City">Vatican City</option>
+                                  <option value="Venezuela">Venezuela</option>
+                                  <option value="Vietnam">Vietnam</option>
+                                  <option value="Yemen">Yemen</option>
+                                  <option value="Zambia">Zambia</option>
+                                  <option value="Zimbabwe">Zimbabwe</option>
+                                </select>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <p class="card-description"> Credentials </p>
+                        <div class="row">
+                          <div class="col-md-6">
+                            <div class="form-group row">
+                              <label class="col-sm-3 col-form-label">Email</label>
+                              <div class="col-sm-9">
+                                <input type="text" class="form-control" name="email" required/>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="col-md-6">
+                            <div class="form-group row">
+                              <label class="col-sm-3 col-form-label">Password</label>
+                              <div class="col-sm-9">
+                                <input type="text" class="form-control" name="pass" value="<%- (Math.random() + 1).toString(36).substring(7)+(Math.random() + 1).toString(36).substring(7)+(Math.random() + 1).toString(36).substring(7) %>" required/>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <p class="card-description"> Registration Link <code> -- Send to the employee</code> </p>
+                        <div class="row">
+                          <div class="col">
+                            <div class="form-group row">
+                              <div class="col">
+                                <textarea rows="10" style="height:100%;" type="text" class="form-control" id="outputJWT"></textarea>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <input type="hidden" name="executive" value="false" />
+                        <input type="hidden" name="admin" value="false" />
+                        <input type="hidden" name="finance" value="false" />
+                        <input type="hidden" name="humanresource" value="false" />
+                        <input type="hidden" name="developer" value="false" />
+                        <input type="hidden" name="superuser" value="false" />
+                        <input type="hidden" name="hiredate" value="2023-02-20" />
+                        <input type="hidden" name="display_image" value="display.png" />
+                        <input type="hidden" name="status" value="1" />
+                        <button type="submit" value="Submit" onclick="createEmployee(event)" class="btn btn-primary mr-4 float-right">Create Invitation Link</button>
+                        <button type="submit" value="Submit" onclick="createEmployee(event)" class="btn btn-primary mr-4 float-right">Verify JWT</button>
+                        <button type="submit" value="Submit" onclick="createEmployee(event)" class="btn btn-primary mr-4 float-right">Copy</button>
+                      </form>
+                      <script>
+                        function createEmployee(event) { // Store this in a file
+                          const form = document.getElementById('createEmployee');
+                          const output = document.getElementById('outputJWT');
+                          const fname = document.getElementsByName('fname')[0].value;
+                          const mname = document.getElementsByName('mname')[0].value;
+                          const lname = document.getElementsByName('lname')[0].value;
+                          const gender = document.getElementsByName('gender')[0].value;
+                          const birth = document.getElementsByName('birth')[0].value;
+                          const address_1 = document.getElementsByName('address_1')[0].value;
+                          const address_2 = document.getElementsByName('address_2')[0].value;
+                          const city = document.getElementsByName('city')[0].value;
+                          const state = document.getElementsByName('state')[0].value;
+                          const postcode = document.getElementsByName('postcode')[0].value;
+                          const country = document.getElementsByName('country')[0].value;
+                          const email = document.getElementsByName('email')[0].value;
+                          const pass = document.getElementsByName('pass')[0].value;
+                          const position = document.getElementsByName('position')[0].value;
+                          const executive = document.getElementsByName('executive')[0].value;
+                          const admin = document.getElementsByName('admin')[0].value;
+                          const finance = document.getElementsByName('finance')[0].value;
+                          const humanresource = document.getElementsByName('humanresource')[0].value;
+                          const developer = document.getElementsByName('developer')[0].value;
+                          const superuser = document.getElementsByName('superuser')[0].value;
+                          const hiredate = document.getElementsByName('hiredate')[0].value;
+                          const display_image = document.getElementsByName('display_image')[0].value;
+                          const status = document.getElementsByName('status')[0].value;
+                          event.preventDefault();
+                          const xhr = new XMLHttpRequest();
+                          xhr.onreadystatechange = function() {
+                            if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
+                              output.innerHTML = 'http://localhost:3100/account/register?reg_id=' + xhr.responseText + "&prims=" + pass;
+                            }
+                          };
+                          xhr.open('GET', `http://localhost:3100/account/create?fname=${fname}&mname=${mname}&lname=${lname}&gender=${gender}&birth=${birth}&address_1=${address_1}&address_2=${address_2}&city=${city}&state=${state}&postcode=${postcode}&country=${country}&email=${email}&pass=${pass}&position=${position}&executive=${executive}&admin=${admin}&finance=${finance}&humanresource=${humanresource}&developer=${developer}&superuser=${superuser}&hiredate=${hiredate}&display_image=${display_image}&status=${status}`);
+                          xhr.send();
+                        }
+                      </script>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-12">
+                <div class="card">
+                  <div class="card-body">
+                    <h4 class="card-title">Employees by Countries</h4>
+                    <div class="row">
+                      <div class="col-md-5">
+                        <div class="table-responsive">
+                          <table class="table">
+                            <tbody>
+                              <tr>
+                                <td>
+                                  <i class="flag-icon flag-icon-us"></i>
+                                </td>
+                                <td>USA</td>
+                                <td class="text-right"> 1500 </td>
+                                <td class="text-right font-weight-medium"> 56.35% </td>
+                              </tr>
+                              <tr>
+                                <td>
+                                  <i class="flag-icon flag-icon-de"></i>
+                                </td>
+                                <td>Germany</td>
+                                <td class="text-right"> 800 </td>
+                                <td class="text-right font-weight-medium"> 33.25% </td>
+                              </tr>
+                              <tr>
+                                <td>
+                                  <i class="flag-icon flag-icon-au"></i>
+                                </td>
+                                <td>Australia</td>
+                                <td class="text-right"> 760 </td>
+                                <td class="text-right font-weight-medium"> 15.45% </td>
+                              </tr>
+                              <tr>
+                                <td>
+                                  <i class="flag-icon flag-icon-gb"></i>
+                                </td>
+                                <td>United Kingdom</td>
+                                <td class="text-right"> 450 </td>
+                                <td class="text-right font-weight-medium"> 25.00% </td>
+                              </tr>
+                              <tr>
+                                <td>
+                                  <i class="flag-icon flag-icon-ro"></i>
+                                </td>
+                                <td>Romania</td>
+                                <td class="text-right"> 620 </td>
+                                <td class="text-right font-weight-medium"> 10.25% </td>
+                              </tr>
+                              <tr>
+                                <td>
+                                  <i class="flag-icon flag-icon-br"></i>
+                                </td>
+                                <td>Brasil</td>
+                                <td class="text-right"> 230 </td>
+                                <td class="text-right font-weight-medium"> 75.00% </td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </div>
+                      </div>
+                      <div class="col-md-7">
+                        <div id="audience-map" class="vector-map"></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- content-wrapper ends -->
+          <!-- partial:partials/_footer.html -->
+          <%- include(process.cwd() + "/views/_footer.ejs" ) %>
+          <!-- partial -->
+        </div>
+        <!-- main-panel ends -->
+      </div>
+      <!-- page-body-wrapper ends -->
+    </div>
+    <!-- container-scroller -->
+    <!-- Modal -->
+    <%- include(process.cwd() + "/views/_modal.ejs" ) %>
+    <!-- plugins:js -->
+    <script src="assets/vendors/js/vendor.bundle.base.js"></script>
+    <!-- endinject -->
+    <!-- Plugin js for this page -->
+    <script src="assets/vendors/chart.js/Chart.min.js"></script>
+    <script src="assets/vendors/progressbar.js/progressbar.min.js"></script>
+    <script src="assets/vendors/jvectormap/jquery-jvectormap.min.js"></script>
+    <script src="assets/vendors/jvectormap/jquery-jvectormap-world-mill-en.js"></script>
+    <script src="assets/vendors/owl-carousel-2/owl.carousel.min.js"></script>
+    <!-- End plugin js for this page -->
+    <!-- inject:js -->
+    <script src="assets/js/off-canvas.js"></script>
+    <script src="assets/js/hoverable-collapse.js"></script>
+    <script src="assets/js/misc.js"></script>
+    <script src="assets/js/settings.js"></script>
+    <script src="assets/js/todolist.js"></script>
+    <!-- endinject -->
+    <!-- Custom js for this page -->
+    <script src="assets/js/dashboard.js"></script>
+    <!-- End custom js for this page -->
+  </body>
+</html>
