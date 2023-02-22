@@ -4,6 +4,7 @@ const sessions = require('express-session')
 const cookieParser = require("cookie-parser")
 const bodyParser = require('body-parser')
 const uuid = require('node-uuid')
+const cors = require('cors')
 const MemoryStore = require('memorystore')(sessions)
 
 // Routes
@@ -32,6 +33,7 @@ app.use(sessions(sessionConfig))
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(bodyParser.json())
 app.use(cookieParser())
+app.use(cors({ origin: '*' }));
 app.use('/', navRoutes)
 app.use('/account', userRoutes)
 app.use('/admin', adminRoutes)
