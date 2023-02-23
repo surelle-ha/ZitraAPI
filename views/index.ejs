@@ -40,14 +40,14 @@
               <div class="col-sm-4 grid-margin">
                 <div class="card">
                   <div class="card-body">
-                    <h5>Revenue</h5>
+                    <h5>New Announcement</h5>
                     <div class="row">
                       <div class="col-8 col-sm-12 col-xl-8 my-auto">
                         <div class="d-flex d-sm-block d-md-flex align-items-center">
-                          <h2 class="mb-0">P32123</h2>
-                          <p class="text-success ml-2 mb-0 font-weight-medium">+3.5%</p>
+                          <h2 class="mb-0"><%- Object.keys(allannouncemnet).length %></h2>
+                          <p class="text-success ml-2 mb-0 font-weight-medium">3 Today</p>
                         </div>
-                        <h6 class="text-muted font-weight-normal">11.38% Since last month</h6>
+                        <h6 class="text-muted font-weight-normal">0% Since last month</h6>
                       </div>
                       <div class="col-4 col-sm-12 col-xl-4 text-center text-xl-right">
                         <i class="icon-lg mdi mdi-codepen text-primary ml-auto"></i>
@@ -59,14 +59,14 @@
               <div class="col-sm-4 grid-margin">
                 <div class="card">
                   <div class="card-body">
-                    <h5>Sales</h5>
+                    <h5>Interaction</h5>
                     <div class="row">
                       <div class="col-8 col-sm-12 col-xl-8 my-auto">
                         <div class="d-flex d-sm-block d-md-flex align-items-center">
-                          <h2 class="mb-0">P13,023,192.50</h2>
-                          <p class="text-success ml-2 mb-0 font-weight-medium">+8.3%</p>
+                          <h2 class="mb-0">89.566%</h2>
+                          <p class="text-success ml-2 mb-0 font-weight-medium">+8.3% Today</p>
                         </div>
-                        <h6 class="text-muted font-weight-normal"> 9.61% Since last month</h6>
+                        <h6 class="text-muted font-weight-normal"> 0% Since last month</h6>
                       </div>
                       <div class="col-4 col-sm-12 col-xl-4 text-center text-xl-right">
                         <i class="icon-lg mdi mdi-wallet-travel text-danger ml-auto"></i>
@@ -78,12 +78,12 @@
               <div class="col-sm-4 grid-margin">
                 <div class="card">
                   <div class="card-body">
-                    <h5>Purchase</h5>
+                    <h5>Current Rank</h5>
                     <div class="row">
                       <div class="col-8 col-sm-12 col-xl-8 my-auto">
                         <div class="d-flex d-sm-block d-md-flex align-items-center">
-                          <h2 class="mb-0">P2039</h2>
-                          <p class="text-danger ml-2 mb-0 font-weight-medium">-2.1% </p>
+                          <h2 class="mb-0">Not Applicable</h2>
+                          <p class="text-danger ml-2 mb-0 font-weight-medium">-1</p>
                         </div>
                         <h6 class="text-muted font-weight-normal">2.27% Since last month</h6>
                       </div>
@@ -108,36 +108,6 @@
                     </div>
                     
                     <div class="preview-list">
-                      <% if(data.superuser || data.executive || data.admin || data.finance || data.humanresource || data.developer){ %>
-                      <div class="preview-item">
-                        <div class="preview-thumbnail">
-                          <img src="assets/images/faces/face6.jpg" alt="image" class="rounded-circle" />
-                        </div>
-                        <div class="preview-item-content d-flex flex-grow">
-                          <div class="flex-grow">
-                            <div class="d-flex d-md-block d-xl-flex justify-content-between">
-                              <h6 class="preview-subject"><%- data.fname + " " + data.lname %></h6>
-                            </div>
-                            <form class="forms-sample" action="/core/addAnnouncement" method="POST">
-                              <div class="row">
-                                <div class="col">
-                                  <div class="form-group row">
-                                    <div class="col">
-                                      <input type="text" class="form-control" placeholder="Announcement Title" name="title" required/>
-                                    </div>
-                                  </div>
-                                </div>
-                              </div>
-                              <div class="form-group">
-                                <textarea class="form-control" id="exampleTextarea1" name="content" placeholder="What's on your mind?" rows="4"></textarea>
-                              </div>
-                              <button type="submit" class="btn btn-primary mr-4 float-right">Post</button>
-                            </form>
-                          </div>
-                        </div>
-                      </div>
-                      <% } %>
-
                       <% if(Object.keys(allannouncemnet).length == 0) { %>
                         <div class="col-12 grid-margin stretch-card">
                           <div class="card corona-gradient-card">
@@ -158,7 +128,7 @@
                         </div>
                       <% } else { %>
                         <% allannouncemnet.sort((a, b) => new Date(b.date) - new Date(a.date)); %>
-                        <% allannouncemnet.forEach(allannouncemnet => { %>
+                        <% allannouncemnet.slice(0, 10).forEach(allannouncemnet => { %>
                           <div class="preview-item border-top">
                             <div class="preview-item-content d-flex flex-grow">
                               <div class="flex-grow">
@@ -167,9 +137,6 @@
                                   <p class="text-muted text-small"><%= allannouncemnet.date %></p>
                                 </div>
                                 <p class="text-justify text-muted"><%- allannouncemnet.content %></p>
-                                <% if(data.superuser || data.executive || data.admin || data.finance || data.humanresource || data.developer){ %>
-                                  <button type="submit" class="btn btn-danger mr-2 float-right" data-toggle="modal" data-target="#confirmDeleteAnnouncement<%- allannouncemnet.id %>">Delete</button>
-                                <% } %>
                                 <button type="submit" class="btn btn-primary mr-2 float-right" data-toggle="modal" data-target="#confirmAcknowledgeAnnouncement<%- allannouncemnet.id %>">Acknowledge</button>
                                 <!-- Acknowledge Confirm -->
                                 <div class="modal fade" id="confirmAcknowledgeAnnouncement<%- allannouncemnet.id %>" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
@@ -217,6 +184,9 @@
                             </div>
                           </div>
                         <% }); %>
+                        <% if(Object.keys(allannouncemnet).length > 10) { %>
+                          <button type="button" class="btn btn-primary btn-block" onclick="window.location.href='/announcement'">Show More</button>
+                        <% } %>
                       <% } %>
                     </div>
                   </div>

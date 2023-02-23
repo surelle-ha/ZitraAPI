@@ -40,6 +40,29 @@ const navController = {
             res.redirect('/login') 
         }
     },
+    async announcement (req, res) { // ACCESS TO ALL
+        try {
+            if(req.session.user.id == null){ 
+                res.redirect('/login');
+            }else{
+                const announcement = await announcementdb.find({acknowledgeby: { $nin: [req.session.user.id] }});
+                res.render('announcement', { data: req.session.user, allannouncemnet: announcement }) 
+            }
+        } catch (e) {
+            res.redirect('/login') 
+        }
+    },
+    todo (req, res) {
+        try {
+            if(req.session.user.id == null){ 
+                res.redirect('/login');
+            }else{
+                res.render('todo', { data: req.session.user })
+            }
+        } catch (e) {
+            res.redirect('/login') 
+        }
+    },
     account (req, res) { // ACCESS TO ALL
         try {
             if(req.session.user.id == null){ 

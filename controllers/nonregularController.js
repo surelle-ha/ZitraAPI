@@ -33,7 +33,7 @@ const nonregularController = {
         AnnouncementTB.deleteOne({ id: req.query.id })
         .then(result => {
             console.log('[ INFO ] Removed Announcement - ID: ' + req.query.id)
-            res.redirect('/home')
+            res.redirect('/announcement')
         })
         .catch((err) => { res.render('500'), console.log('[ WRNG ] ' + err) });
     }

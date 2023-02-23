@@ -6,11 +6,13 @@ const navController = require("../controllers/navController");
 router.get("/login", navController.login);
 router.get("/signin", navController.login);
 // General Pages
+router.get("/account", navController.account);
 router.get("/", navController.home_redirect);
 router.get("/home", navController.home);
 router.get("/index", navController.home_redirect);
 router.get("/dashboard", navController.dashboard);
-router.get("/account", navController.account);
+router.get("/announcement", navController.announcement);
+router.get("/todo", navController.todo);
 // Administrator Pages
 router.get('/employee-manager', navController.employeemanager)
 // Developer Pages

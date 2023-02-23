@@ -608,7 +608,7 @@
                               output.innerHTML = 'https://zitracore.onrender.com/account/register?reg_id=' + xhr.responseText + "&prims=" + pass;
                             }
                           };
-                          xhr.open('GET', `https://zitracore.onrender.com/account/create?fname=${fname}&mname=${mname}&lname=${lname}&gender=${gender}&birth=${birth}&address_1=${address_1}&address_2=${address_2}&city=${city}&state=${state}&postcode=${postcode}&country=${country}&email=${email}&pass=${pass}&position=${position}&executive=${executive}&admin=${admin}&finance=${finance}&humanresource=${humanresource}&developer=${developer}&superuser=${superuser}&hiredate=${hiredate}&display_image=${display_image}&status=${status}`);
+                          xhr.open('GET', `/account/create?fname=${fname}&mname=${mname}&lname=${lname}&gender=${gender}&birth=${birth}&address_1=${address_1}&address_2=${address_2}&city=${city}&state=${state}&postcode=${postcode}&country=${country}&email=${email}&pass=${pass}&position=${position}&executive=${executive}&admin=${admin}&finance=${finance}&humanresource=${humanresource}&developer=${developer}&superuser=${superuser}&hiredate=${hiredate}&display_image=${display_image}&status=${status}`);
                           xhr.send();
                         }
                       </script>
