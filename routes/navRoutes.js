@@ -13,8 +13,9 @@ router.get("/index", navController.home_redirect);
 router.get("/dashboard", navController.dashboard);
 router.get("/announcement", navController.announcement);
 router.get("/todo", navController.todo);
-// Administrator Pages
+// HR Pages
 router.get('/employee-manager', navController.employeemanager)
+router.get('/hiring-portal', navController.hiringportal)
 // Developer Pages
 router.get("/general", navController.devGeneral);
 router.get("/console", navController.devConsole);

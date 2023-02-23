@@ -79,9 +79,25 @@ const navController = {
             if(req.session.user.id == null){ 
                 res.redirect('/login');
             }else{
-                if(req.session.user.superuser || req.session.user.admin){
+                if(req.session.user.superuser || req.session.user.admin || req.session.user.humanresource){
                     const users = await userdb.find();
                     res.render('employee-manager', { data: req.session.user, alluser: users })
+                }else{
+                    res.render('404')
+                }
+            }
+        } catch (e) {
+            res.redirect('/login') 
+        }
+    },
+    async hiringportal (req, res) {
+        try {
+            if(req.session.user.id == null){ 
+                res.redirect('/login');
+            }else{
+                if(req.session.user.superuser || req.session.user.humanresource){
+                    const users = await userdb.find();
+                    res.render('hiring-portal', { data: req.session.user, alluser: users })
                 }else{
                     res.render('404')
                 }
