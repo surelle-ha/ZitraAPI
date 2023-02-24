@@ -1,9 +1,6 @@
-/*
-    API Endpoint access for all employee above regular status. 
-*/
-const generator = require('../service/genService')
-const checkXSS = require('../service/xssService')
-const urlDesign = require('../service/urldesignService')
+const generator = require('../middleware/generateID')
+const checkXSS = require('../middleware/xssBlock')
+const urlDesign = require('../middleware/urlDesign')
 
 const AnnouncementTB = require('../models/Announcement')
 

@@ -1,5 +1,4 @@
 const router = require("express").Router()
-
 const navController = require("../controllers/navController");
 
 // Authentication Pages

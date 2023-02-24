@@ -1,8 +1,8 @@
 const jwt = require('jsonwebtoken');
 const crypto = require('crypto');
 
-const generator = require('../service/genService')
-const checkXSS = require('../service/xssService')
+const generator = require('../middleware/generateID')
+const checkXSS = require('../middleware/xssBlock')
 
 const userdb = require('../models/User')
 
@@ -52,9 +52,9 @@ const userController = {
         newUser.save()
           .then(() => {
             console.log('[ INFO ] JWT matched and user registered.')
-            res.send(verified)
+            res.send({success:'success'})
           })
-          .catch((err) => { res.render('500'), console.log('[ WRNG ] ' + err) });
+          .catch((err) => { res.send({error: err}), console.log('[ WRNG ] ' + err) });
       } else {
         return res.status(401).send(error);
       }
