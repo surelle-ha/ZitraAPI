@@ -1,7 +1,7 @@
 
 > UNDER DEVELOPMENT
 <div align="center">
-	<h1>V O R T U S</h1>
+	<h1>Z I T R A</h1>
 	<img src="https://img.shields.io/badge/HTML-Yes-orange">
 	<img src="https://img.shields.io/badge/CSS-Yes-lightgreen">
 	<img src="https://img.shields.io/badge/JavaScript-Yes-yellow"><br>
