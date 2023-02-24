@@ -3,17 +3,6 @@
 <div align="center">
 	<h1>Z I T R A</h1>
 </div>
-<div id="badges" align="center">
-    <a href="https://www.linkedin.com/in/harold-eustaquio-b13190237/">
-    <img src="https://img.shields.io/badge/LinkedIn-blue?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn Badge"/>
-    </a>
-    <a href="#">
-     <img src="https://img.shields.io/badge/Facebook-blue?style=for-the-badge&logo=facebook&logoColor=white" alt="Facebook Badge"/>
-    </a>
-    <a href="https://twitter.com/escolidista1">
-     <img src="https://img.shields.io/badge/Twitter-blue?style=for-the-badge&logo=twitter&logoColor=white" alt="Twitter Badge"/>
-    </a>
-  </div>
   <div align="center">
 	  <img src="https://komarev.com/ghpvc/?username=surelle-ha&style=flat-square&color=blue" alt=""/>
 	  <h3>Hey there! Welcome to Zitra.</h3>
