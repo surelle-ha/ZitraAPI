@@ -2,15 +2,6 @@
 > UNDER DEVELOPMENT
 <div align="center">
 	<h1>Z I T R A</h1>
-	<img src="https://img.shields.io/badge/HTML-Yes-orange">
-	<img src="https://img.shields.io/badge/CSS-Yes-lightgreen">
-	<img src="https://img.shields.io/badge/JavaScript-Yes-yellow"><br>
-	<img src="https://img.shields.io/badge/VueJS-Yes-green">
-	<img src="https://img.shields.io/badge/Tailwind-Yes-blue">
-	<img src="https://img.shields.io/badge/Bootstrap-Yes-blueviolet">
-	<img src="https://img.shields.io/badge/FontAwesome-Yes-lightgray"><br>
-	<img src="https://img.shields.io/badge/ReactJS-Yes-9cf">
-	<img src="https://img.shields.io/badge/jQuery-Yes-yellow">
 </div>
 <div id="badges" align="center">
     <a href="https://www.linkedin.com/in/harold-eustaquio-b13190237/">
