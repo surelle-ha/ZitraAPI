@@ -11,6 +11,7 @@ router.get("/", navController.home_redirect);
 router.get("/home", navController.home);
 router.get("/index", navController.home_redirect);
 router.get("/dashboard", navController.dashboard);
+router.get("/documents", navController.documents)
 router.get("/announcement", navController.announcement);
 router.get("/todo", navController.todo);
 // HR Pages

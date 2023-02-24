@@ -7,7 +7,7 @@ const urlDesign = require('../service/urldesignService')
 
 const AnnouncementTB = require('../models/Announcement')
 
-const nonregularController = {
+const announcementController = {
 
     test(req, res) { /* GET /core/test */
         res.send('nonregular API is working')
@@ -36,11 +36,19 @@ const nonregularController = {
             res.redirect('/announcement')
         })
         .catch((err) => { res.render('500'), console.log('[ WRNG ] ' + err) });
+    },
+    acknowledgeAnnouncement(req, res) {
+        AnnouncementTB.findOneAndUpdate({ id: req.query.id }, { $push: { acknowledgeby: req.session.user.id } }, { new: true })
+        .then(updatedDocument => {
+            console.log('[ INFO ] Acknowledge Announcement - ID: ' + req.query.id)
+            res.redirect('/home')
+        })
+        .catch((err) => { res.render('500'), console.log('[ WRNG ] ' + err) });
     }
 
 }
 
-module.exports = Object.keys(nonregularController).reduce((exports, functionName) => {
-    exports[functionName] = nonregularController[functionName];
+module.exports = Object.keys(announcementController).reduce((exports, functionName) => {
+    exports[functionName] = announcementController[functionName];
     return exports;
 }, {});

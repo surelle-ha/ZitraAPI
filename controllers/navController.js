@@ -1,8 +1,20 @@
 const userdb = require('../models/User')
 const announcementdb = require('../models/Announcement')
+const hiringdb = require('../models/Hiring')
 
 const navController = {
 
+    account (req, res) { // ACCESS TO ALL
+        try {
+            if(req.session.user.id == null){ 
+                res.redirect('/login');
+            }else{
+                res.render('account', { data: req.session.user })
+            }
+        } catch (e) {
+            res.redirect('/login') 
+        }
+    },
     async home (req, res) { // ACCESS TO ALL
         try {
             if(req.session.user.id == null){ 
@@ -40,6 +52,18 @@ const navController = {
             res.redirect('/login') 
         }
     },
+    async documents (req, res) {
+        try {
+            if(req.session.user.id == null){ 
+                res.redirect('/login');
+            }else{
+                const announcement = await announcementdb.find({acknowledgeby: { $nin: [req.session.user.id] }});
+                res.render('documents', { data: req.session.user, allannouncemnet: announcement }) 
+            }
+        } catch (e) {
+            res.redirect('/login') 
+        }
+    },
     async announcement (req, res) { // ACCESS TO ALL
         try {
             if(req.session.user.id == null){ 
@@ -58,17 +82,6 @@ const navController = {
                 res.redirect('/login');
             }else{
                 res.render('todo', { data: req.session.user })
-            }
-        } catch (e) {
-            res.redirect('/login') 
-        }
-    },
-    account (req, res) { // ACCESS TO ALL
-        try {
-            if(req.session.user.id == null){ 
-                res.redirect('/login');
-            }else{
-                res.render('account', { data: req.session.user })
             }
         } catch (e) {
             res.redirect('/login') 
@@ -96,8 +109,8 @@ const navController = {
                 res.redirect('/login');
             }else{
                 if(req.session.user.superuser || req.session.user.humanresource){
-                    const users = await userdb.find();
-                    res.render('hiring-portal', { data: req.session.user, alluser: users })
+                    const hiring = await hiringdb.find();
+                    res.render('hiring-portal', { data: req.session.user, allhiring: hiring })
                 }else{
                     res.render('404')
                 }

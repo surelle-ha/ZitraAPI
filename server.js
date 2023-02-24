@@ -9,10 +9,9 @@ const MemoryStore = require('memorystore')(sessions)
 
 // Routes
 const userRoutes = require("./routes/userRoutes")
-const adminRoutes = require('./routes/adminRoutes')
+const hrRoutes = require('./routes/hrRoutes')
 const navRoutes = require('./routes/navRoutes')
-const nonregularRoutes = require('./routes/nonregularRoutes')
-const regularRoutes = require('./routes/regularRoutes')
+const announcementRoutes = require('./routes/announcementRoutes')
 
 const oneDay = 1000 * 60 * 60 * 24;
 const sessionConfig = {
@@ -35,11 +34,11 @@ app.use(bodyParser.json())
 app.use(cookieParser())
 app.use(cors({ origin: '*' }));
 app.use('/', navRoutes)
-app.use('/account', userRoutes)
-app.use('/admin', adminRoutes)
 
-app.use('/core', nonregularRoutes)
-app.use('/core', regularRoutes)
+app.use('/account', userRoutes)
+app.use('/hr', hrRoutes)
+
+app.use('/core', announcementRoutes)
 
 app.get('/*', (req, res) => {
   res.render('404')
