@@ -2,9 +2,9 @@ const router = require('express').Router()
 
 const hrController = require('../controllers/hrController')
 
-router.get('/', hrController.test)
-router.get('/test', hrController.test)
-router.get('/createHiring', hrController.createHiring)
-router.get('/removeHiring', hrController.removeHiring)
+router.get('/v1/internal/hr/', hrController.test)
+router.get('/v1/internal/hr/test', hrController.test)
+router.get('/v1/internal/hr/createHiring', hrController.createHiring)
+router.get('/v1/internal/hr/removeHiring', hrController.removeHiring)
 
 module.exports = router

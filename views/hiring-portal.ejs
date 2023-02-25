@@ -102,7 +102,7 @@
                               output.innerHTML = 'https://zitracore.onrender.com/application/' + xhr.responseText;
                             }
                           };
-                        xhr.open('GET', `/hr/createHiring?appname=${appname}&apppos=${apppos}&appdate=${appdate}`);
+                        xhr.open('GET', `/v1/internal/hr/createHiring?appname=${appname}&apppos=${apppos}&appdate=${appdate}`);
                         xhr.send();
                       }
                     </script>
@@ -134,7 +134,7 @@
                               <td>
                                 <input type="hidden" id="copylink<%- allhiring.id %>" value="<%- allhiring.link %>">
                                 <button class="btn btn-warning" id="copyLinkbtn<%- allhiring.id %>" data-toggle="modal" data-target='#openAppLink<%- allhiring.id %>')">Show Link</button>
-                                <button class="btn btn-danger" onclick="window.location.href='/hr/removeHiring?id=<%- allhiring.id %>'">Terminate</button>
+                                <button class="btn btn-danger" onclick="window.location.href='/v1/internal/hr/removeHiring?id=<%- allhiring.id %>'">Terminate</button>
                               </td>
                             </tr>
                             <div class="modal fade" id="openAppLink<%- allhiring.id %>" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">

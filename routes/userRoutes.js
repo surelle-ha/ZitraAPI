@@ -1,9 +1,9 @@
 const router = require("express").Router();
 const userController = require("../controllers/userController");
 
-router.get('/create', userController.CreateUser) //change to post later & update controller
-router.get('/register', userController.AddUser)
-router.post('/authenticate', userController.AuthUser)
-router.get('/logout', userController.LogoutUser)
+router.get('/v1/core/user/create', userController.CreateUser) //change to post later & update controller
+router.get('/v1/core/user/register', userController.AddUser)
+router.post('/v1/core/user/authenticate', userController.AuthUser)
+router.get('/v1/core/user/logout', userController.LogoutUser)
 
 module.exports = router;

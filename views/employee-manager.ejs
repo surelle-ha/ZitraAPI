@@ -247,7 +247,7 @@
                   <div class="card">
                     <div class="card-body">
                       <h4 class="card-title">Create Employee</h4>
-                      <form class="form-sample" method="GET" action="/account/create" id="createEmployee">
+                      <form class="form-sample" method="GET" action="api/v1/core/user/create" id="createEmployee">
                         <p class="card-description"> Personal info </p>
                         <div class="row">
                           <div class="col-md-6">
@@ -649,10 +649,10 @@
                           const xhr = new XMLHttpRequest();
                           xhr.onreadystatechange = function() {
                             if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
-                              output.innerHTML = 'https://zitracore.onrender.com/account/register?reg_id=' + xhr.responseText + "&prims=" + pass;
+                              output.innerHTML = 'https://zitracore.onrender.com/api/v1/core/user/register?reg_id=' + xhr.responseText + "&prims=" + pass;
                             }
                           };
-                          xhr.open('GET', `/account/create?fname=${fname}&mname=${mname}&lname=${lname}&gender=${gender}&birth=${birth}&address_1=${address_1}&address_2=${address_2}&city=${city}&state=${state}&postcode=${postcode}&country=${country}&email=${email}&pass=${pass}&position=${position}&executive=${executive}&admin=${admin}&finance=${finance}&humanresource=${humanresource}&developer=${developer}&superuser=${superuser}&hiredate=${hiredate}&display_image=${display_image}&status=${status}`);
+                          xhr.open('GET', `/api/v1/core/user/create?fname=${fname}&mname=${mname}&lname=${lname}&gender=${gender}&birth=${birth}&address_1=${address_1}&address_2=${address_2}&city=${city}&state=${state}&postcode=${postcode}&country=${country}&email=${email}&pass=${pass}&position=${position}&executive=${executive}&admin=${admin}&finance=${finance}&humanresource=${humanresource}&developer=${developer}&superuser=${superuser}&hiredate=${hiredate}&display_image=${display_image}&status=${status}`);
                           xhr.send();
                         }
                       </script>

@@ -2,9 +2,10 @@ const router = require('express').Router()
 
 const announcementController = require('../controllers/announcementController')
 
-router.post('/test', announcementController.test)
-router.post('/addAnnouncement', announcementController.addAnnouncement)
-router.delete('/removeAnnouncement', announcementController.removeAnnouncement)
-router.get('/acknowledgeAnnouncement', announcementController.acknowledgeAnnouncement)
+router.post('/v1/core/announcement/', announcementController.test)
+router.post('/v1/core/announcement/test', announcementController.test)
+router.post('/v1/core/announcement/add', announcementController.addAnnouncement)
+router.delete('/v1/core/announcement/remove', announcementController.removeAnnouncement)
+router.get('/v1/core/announcement/acknowledge', announcementController.acknowledgeAnnouncement)
 
 module.exports = router

@@ -34,11 +34,9 @@ app.use(bodyParser.json())
 app.use(cookieParser())
 app.use(cors({ origin: '*' }));
 app.use('/', navRoutes)
-
-app.use('/account', userRoutes)
-app.use('/hr', hrRoutes)
-
-app.use('/core', announcementRoutes)
+app.use('/api', userRoutes)
+app.use('/api', hrRoutes)
+app.use('/api', announcementRoutes)
 
 app.get('/*', (req, res) => {
   res.render('404')

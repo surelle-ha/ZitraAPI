@@ -27,7 +27,7 @@
                             <div class="d-flex d-md-block d-xl-flex justify-content-between">
                               <h6 class="preview-subject"><%- data.fname + " " + data.lname %></h6>
                             </div>
-                            <form class="forms-sample" action="/core/addAnnouncement" method="POST">
+                            <form class="forms-sample" action="/api/v1/core/announcement/add" method="POST">
                               <div class="row">
                                 <div class="col">
                                   <div class="form-group row">
@@ -95,7 +95,7 @@
                                           </div>
                                           <div class="modal-footer">
                                               <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                              <button type="button" class="btn btn-success" onclick="window.location.href='/core/acknowledgeAnnouncement?id=<%- allannouncemnet.id %>'">Yes</button>
+                                              <button type="button" class="btn btn-success" onclick="window.location.href='/api/v1/core/announcement/acknowledge?id=<%- allannouncemnet.id %>'">Yes</button>
                                           </div>
                                       </div>
                                   </div>
@@ -119,7 +119,7 @@
                                               <button type="button" class="btn btn-danger" onclick="deleteAnnouncement()" data-dismiss="modal">Delete</button>
                                               <script>
                                                 function deleteAnnouncement() {
-                                                  fetch('/core/removeAnnouncement?id=<%- allannouncemnet.id %>', {
+                                                  fetch('/api/v1/core/announcement/remove?id=<%- allannouncemnet.id %>', {
                                                     method: 'DELETE'
                                                   })
                                                   .then(response => {
