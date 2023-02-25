@@ -165,8 +165,52 @@
                             <% }else{ %>
                               <td><label class="badge badge-info w-100">No</label></td>
                             <% } %>
-                            <td><button class="btn btn-primary w-100" data-toggle="modal" data-target="#manageUser">Manage</button></td>
+                            <td><button class="btn btn-primary w-100" data-toggle="modal" data-target="#manageUser<%- alluser.id %>">Manage</button></td>
                           </tr>
+                          <div class="modal fade" id="manageUser<%- alluser.id %>" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                            <div class="modal-dialog modal-dialog-centered" role="document">
+                                <div class="modal-content">
+                                    <div class="grid-margin stretch-card">
+                                        <div class="card">
+                                            <div class="card-body">
+                                                <h4 class="card-title">Manage Account</h4>
+                                                <form class="forms-sample">
+                                                    <div class="form-group">
+                                                      <label for="exampleInputName1">Employee ID</label>
+                                                      <input type="text" class="form-control" placeholder="ID" value="<%- alluser.id %>">
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="exampleInputName1">First Name</label>
+                                                        <input type="text" class="form-control" placeholder="First Name" value="<%- alluser.fname %>">
+                                                    </div>
+                                                    <div class="form-group">
+                                                      <label for="exampleInputName1">Last Name</label>
+                                                      <input type="text" class="form-control" placeholder="Last Name" value="<%- alluser.lname %>">
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="exampleInputEmail3">Email address</label>
+                                                        <input type="email" class="form-control" id="exampleInputEmail3" placeholder="Email" value="<%- alluser.email %>">
+                                                    </div>
+                                                    <div class="form-group">
+                                                      <label>Select Administrative Access (CTRL+Click)</label>
+                                                      <select class="js-example-basic-multiple" multiple="multiple" style="width:100%">
+                                                        <option value="executive" <% if(alluser.executive) { %>selected<% } %>>Executive</option>
+                                                        <option value="admin" <% if(alluser.admin) { %>selected<% } %>>Admin</option>
+                                                        <option value="finance" <% if(alluser.finance) { %>selected<% } %>>Finance</option>
+                                                        <option value="humanresource" <% if(alluser.humanresource) { %>selected<% } %>>HR</option>
+                                                        <option value="developer" <% if(alluser.developer) { %>selected<% } %>>Developer</option>
+                                                        <option value="superuser" <% if(alluser.superuser) { %>selected<% } %>>SuperUser</option>
+                                                      </select>
+                                                    </div>
+                                                    <button type="submit" class="btn btn-primary mr-2">Submit</button>
+                                                    <button class="btn btn-dark">Cancel</button>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                          </div>
                           <% }); %>
                           
                         </tbody>

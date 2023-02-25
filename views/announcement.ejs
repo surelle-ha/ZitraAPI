@@ -68,7 +68,7 @@
                       <% } else { %>
                         <% allannouncemnet.sort((a, b) => new Date(b.date) - new Date(a.date)); %>
                         <% allannouncemnet.forEach(allannouncemnet => { %>
-                          <div class="preview-item border-top">
+                          <div class="preview-item border-top" id="announcementKey">
                             <div class="preview-item-content d-flex flex-grow">
                               <div class="flex-grow">
                                 <div class="d-flex d-md-block d-xl-flex justify-content-between">
@@ -116,14 +116,15 @@
                                           </div>
                                           <div class="modal-footer">
                                               <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                              <button type="button" class="btn btn-danger" onclick="deleteAnnouncement()">Delete</button>
+                                              <button type="button" class="btn btn-danger" onclick="deleteAnnouncement()" data-dismiss="modal">Delete</button>
                                               <script>
                                                 function deleteAnnouncement() {
                                                   fetch('/core/removeAnnouncement?id=<%- allannouncemnet.id %>', {
                                                     method: 'DELETE'
                                                   })
                                                   .then(response => {
-                                                    window.location.href = "/announcement";
+                                                    var element = document.getElementById("announcementKey"); // Get the element
+                                                    element.remove(); //
                                                   })
                                                   .catch(error => {
                                                     window.location.href = "/500";
