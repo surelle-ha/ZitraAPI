@@ -1,6 +1,7 @@
 const userdb = require('../models/User')
 const announcementdb = require('../models/Announcement')
 const hiringdb = require('../models/Hiring')
+const changelogdb = require('../models/ChangeLog')
 
 const navController = {
 
@@ -20,8 +21,9 @@ const navController = {
             if(req.session.user.id == null){ 
                 res.redirect('/login');
             }else{
+                const changelog = await changelogdb.find();
                 const announcement = await announcementdb.find({acknowledgeby: { $nin: [req.session.user.id] }});
-                res.render('index', { data: req.session.user, allannouncemnet: announcement }) 
+                res.render('index', { data: req.session.user, allannouncemnet: announcement, allchangelog: changelog }) 
             }
         } catch (e) {
             res.redirect('/login') 

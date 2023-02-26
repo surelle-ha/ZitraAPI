@@ -12,6 +12,7 @@ const userRoutes = require("./routes/userRoutes")
 const hrRoutes = require('./routes/hrRoutes')
 const navRoutes = require('./routes/navRoutes')
 const announcementRoutes = require('./routes/announcementRoutes')
+const changelogRoutes = require('./routes/changelogRoutes')
 
 const oneDay = 1000 * 60 * 60 * 24;
 const sessionConfig = {
@@ -37,6 +38,7 @@ app.use('/', navRoutes)
 app.use('/api', userRoutes)
 app.use('/api', hrRoutes)
 app.use('/api', announcementRoutes)
+app.use('/api', changelogRoutes)
 
 app.get('/*', (req, res) => {
   res.render('404')
