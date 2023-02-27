@@ -8,11 +8,10 @@ const cors = require('cors')
 const MemoryStore = require('memorystore')(sessions)
 
 // Routes
-const userRoutes = require("./routes/userRoutes")
-const hrRoutes = require('./routes/hrRoutes')
-const navRoutes = require('./routes/navRoutes')
-const announcementRoutes = require('./routes/announcementRoutes')
-const changelogRoutes = require('./routes/changelogRoutes')
+const User = require("./routes/User") // Revised
+const Recruitment = require('./routes/Recruitment')
+const Announcement = require('./routes/Announcement') // Revised
+const ChangeLog = require('./routes/ChangeLog')
 
 const oneDay = 1000 * 60 * 60 * 24;
 const sessionConfig = {
@@ -27,18 +26,15 @@ const sessionConfig = {
 const app = express()
 app.set('view engine', 'ejs')
 app.set('trust proxy', true)
-app.engine('ejs', require('ejs').__express);
-app.use(express.static(__dirname + process.env.WEB_DEFAULT_PATH, { index: process.env.WEB_DEFAULT_HOME }))
 app.use(sessions(sessionConfig))
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(bodyParser.json())
 app.use(cookieParser())
 app.use(cors({ origin: '*' }));
-app.use('/', navRoutes)
-app.use('/api', userRoutes)
-app.use('/api', hrRoutes)
-app.use('/api', announcementRoutes)
-app.use('/api', changelogRoutes)
+app.use('/api', User)
+app.use('/api', Recruitment)
+app.use('/api', Announcement)
+app.use('/api', ChangeLog)
 
 app.get('/*', (req, res) => {
   res.render('404')
