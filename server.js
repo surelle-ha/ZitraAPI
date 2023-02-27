@@ -36,7 +36,7 @@ app.use('/api', Recruitment)
 app.use('/api', Announcement)
 app.use('/api', ChangeLog)
 
-app.get('/*', (req, res) => {
+app.get('/', (req, res) => {
   res.send({ message: 'Zitra API: Development Environment.' })
 })
 
