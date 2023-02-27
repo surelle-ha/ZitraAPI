@@ -7,12 +7,12 @@ services:
     branch: main
     envVars:
       - key: SERVER_PORT
-        value: 3100
+        value: $SERVER_PORT
       - key: SESSION_SECRET
-        value: zitrakonetwo
+        value: $SESSION_SECRET
       - key: SECURITY_SALT
-        value: zitrakoneone
+        value: $SECURITY_SALT
       - key: JWT_SECRET_KEY
-        value: zitraonetwojwthk4862753951
+        value: $JWT_SECRET_KEY
       - key: MONGODB_CONF
-        value: mongodb+srv://surellezitra:izukishun@zitrak.6lcyv41.mongodb.net/Zitrak?retryWrites=true&w=majority
+        value: $MONGODB_CONF
