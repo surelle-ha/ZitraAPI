@@ -36,7 +36,7 @@ Run using recommended launch script
     node server.js
     
  ## Quick Deploy
- [![Deploy to Render](https://render.com/images/deploy-to-render-button.svg)](https://render.com/deploy=https://github.com/surelle-ha/Zitrav2-corona)
+ [![Deploy to Render](https://render.com/images/deploy-to-render-button.svg)](https://render.com/deploy?repo=https://github.com/surelle-ha/Zitrav2-corona)
 
 ## Developer
 
