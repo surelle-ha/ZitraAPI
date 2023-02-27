@@ -37,7 +37,7 @@ app.use('/api', Announcement)
 app.use('/api', ChangeLog)
 
 app.get('/*', (req, res) => {
-  res.render('404')
+  res.send({ message: 'Zitra API: Development Environment.' })
 })
 
 app.listen(process.env.SERVER_PORT, () => {
