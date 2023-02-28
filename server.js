@@ -33,7 +33,7 @@ app.use(bodyParser.urlencoded({ extended: true }))
 app.use(bodyParser.json())
 app.use(cookieParser())
 app.use(cors({ origin: '*' }));
-app.use('/api', User)
+app.use('/api', requireAuth, User)
 app.use('/api', requireAuth, Recruitment)
 app.use('/api', requireAuth, Announcement)
 app.use('/api', requireAuth, ChangeLog)

@@ -1,5 +1,7 @@
 function requireAuth(req, res, next) {
-
+  if (req.path === '/v1/core/user/authenticate') {
+    return next();
+  }
   if (!req.session.user) {
     return res.send({ 
       code: '401', 
