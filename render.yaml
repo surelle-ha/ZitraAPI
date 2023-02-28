@@ -1,6 +1,6 @@
 services:
   - type: web
-    name: webdis
+    name: api.zitra
     env: docker
     repo: https://github.com/surelle-ha/zitrav2-corona.git
     plan: free
