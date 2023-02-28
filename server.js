@@ -33,11 +33,10 @@ app.use(bodyParser.urlencoded({ extended: true }))
 app.use(bodyParser.json())
 app.use(cookieParser())
 app.use(cors({ origin: '*' }));
-app.use(requireAuth)
 app.use('/api', User)
-app.use('/api', Recruitment)
-app.use('/api', Announcement)
-app.use('/api', ChangeLog)
+app.use('/api', requireAuth, Recruitment)
+app.use('/api', requireAuth, Announcement)
+app.use('/api', requireAuth, ChangeLog)
 
 app.get('/', (req, res) => {
   res.send({ message: 'Zitra API: Development Environment.' })
