@@ -7,6 +7,8 @@ const uuid = require('node-uuid')
 const cors = require('cors')
 const MemoryStore = require('memorystore')(sessions)
 
+const requireAuth = require('./middleware/requireAuth')
+
 // Routes
 const User = require("./routes/User") // Revised
 const Recruitment = require('./routes/Recruitment')
@@ -31,6 +33,7 @@ app.use(bodyParser.urlencoded({ extended: true }))
 app.use(bodyParser.json())
 app.use(cookieParser())
 app.use(cors({ origin: '*' }));
+app.use(requireAuth)
 app.use('/api', User)
 app.use('/api', Recruitment)
 app.use('/api', Announcement)

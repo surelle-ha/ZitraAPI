@@ -6,7 +6,7 @@ const AnnouncementTB = require('../models/Announcement');
 
 const announcementController = {
   test(req, res) {
-    // GET /api/v1/core/announcement/test
+    // POST /api/v1/core/announcement/test
     res.send({ 
       code: '200', 
       result: 'success', 
