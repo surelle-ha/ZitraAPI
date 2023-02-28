@@ -4,7 +4,8 @@
   "description": "Application Programming Interface for Employee Management System",
   "main": "server.js",
   "scripts": {
-    "run": "node server.js"
+    "dev": "node server.js",
+    "prod": "node server.js",
   },
   "author": "",
   "license": "ISC",
