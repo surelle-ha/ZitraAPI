@@ -1,10 +1,12 @@
 {
-  "name": "mvcexample",
+  "name": "ZitraAPI",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "Zitra API simplifies HR management by organizing employee data, tasks, schedules, and performance. It seamlessly integrates with frontend technologies and is customizable to meet unique business needs.",
+  "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "node server.js",
+    "prod": "node server.js",
+    "dev": "node server.js"
   },
   "author": "",
   "license": "ISC",
