@@ -2,7 +2,7 @@ services:
   - type: web
     name: api.zitra
     env: docker
-    repo: https://github.com/surelle-ha/zitrav2-corona.git
+    repo: https://github.com/surelle-ha/ZitraAPI.git
     plan: free
     branch: main
     envVars:
