@@ -39,6 +39,6 @@ EXPOSE ${SERVER_PORT}
 
 HEALTHCHECK --interval=30s --timeout=10s --start-period=5s CMD npm run healthcheck-manual
 
-CMD [ "npm", "run dev" ]
+CMD [ "node", "server.js" ]
 
 # end.
