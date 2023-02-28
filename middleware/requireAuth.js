@@ -8,10 +8,9 @@ function requireAuth(req, res, next) {
       message: "Possible: Not Authenticated. Please login or check access token.",
       time: new Date().toLocaleString() 
     });
-
-    next()
-
   }
+
+  next()
 }
 
 module.exports = requireAuth
